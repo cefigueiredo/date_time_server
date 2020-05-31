@@ -16,7 +16,7 @@ defmodule CurrentDateTime do
       "2020-05-30T22:34:10.123456Z"
 
   """
-  @spec format(String.t()) :: String.t()
+  @spec format(String.t()) :: String.t() | {:error, String.t()}
   def format("date") do
     current_datetime()
     |> Date.to_iso8601()
@@ -30,6 +30,10 @@ defmodule CurrentDateTime do
   def format("datetime") do
     current_datetime()
     |> DateTime.to_iso8601()
+  end
+
+  def format(invalid_format) do
+    {:error, "Invalid argument: #{invalid_format}"}
   end
 
   defp current_datetime do

@@ -37,7 +37,7 @@ defmodule DateTimeServer.TCP.Worker do
         {:stop, msg, state}
 
       datetime ->
-        :gen_tcp.send(state[:socket], datetime)
+        :gen_tcp.send(state[:socket], datetime <> "\n")
 
         {:noreply, state}
     end

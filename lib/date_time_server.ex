@@ -9,8 +9,8 @@ defmodule DateTimeServer do
       {DateTimeServer.TCP, port}
     ]
 
-    Supervisor.start_link(children, strategy: :one_for_one)
-
+    result = Supervisor.start_link(children, strategy: :one_for_one)
     IO.puts "Listenning to ports #{port}/UDP and #{port}/TCP"
+    result
   end
 end

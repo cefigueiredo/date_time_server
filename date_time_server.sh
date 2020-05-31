@@ -1,3 +1,3 @@
 #!/bin/bash
 
-PORT=$1 mix --no-halt
+PORT=$1 mix run --no-halt

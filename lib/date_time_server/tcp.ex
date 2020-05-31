@@ -14,7 +14,7 @@ defmodule DateTimeServer.TCP do
 
   defp loop_client(socket) do
     {:ok, client_socket} = :gen_tcp.accept(socket)
-    {:ok, pid} = DateTimeServer.TCP.Worker.start(client_socket)
+    {:ok, pid} = DateTimeServer.TCP.Socket.start(client_socket)
 
     :gen_tcp.controlling_process(client_socket, pid)
     loop_client(socket)

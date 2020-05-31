@@ -1,4 +1,4 @@
-defmodule DateTimeServer.TCP.Worker do
+defmodule DateTimeServer.TCP.Socket do
   use GenServer
 
   def start(socket) do

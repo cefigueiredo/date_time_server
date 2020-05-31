@@ -1,12 +1,14 @@
 defmodule DateTimeServer do
   use Application
 
-  def start(_type, args) do
+  def start(_type, _args) do
+    port = String.to_integer(System.get_env("PORT") || "3333")
+
     children = [
-      {DateTimeServer.UDP, :start_link, args[:port]},
-      {DateTimeServer.TCP, :start_link, args[:port]}
+      {DateTimeServer.UDP, port},
+      {DateTimeServer.TCP, port}
     ]
 
-    Supervisor.init(children, strategy: :one_for_one)
+    Supervisor.start_link(children, strategy: :one_for_one)
   end
 end

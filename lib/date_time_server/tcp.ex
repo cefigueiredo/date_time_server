@@ -7,7 +7,7 @@ defmodule DateTimeServer.TCP do
 
   def init(port) do
     {:ok, socket} = :gen_tcp.listen(port, [:binary, active: true])
-    loop_client(socket)
+    spawn fn -> loop_client(socket) end
 
     {:ok, socket}
   end

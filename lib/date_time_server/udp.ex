@@ -6,7 +6,7 @@ defmodule DateTimeServer.UDP do
   end
 
   def init(port) do
-    {:ok, _socket} = :gen_udp.open(port, [:binary, active: true])
+    {:ok, socket} = :gen_udp.open(port, [:binary, active: true])
   end
 
   # Handles requests sent to the UDP server

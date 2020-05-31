@@ -1,18 +1,12 @@
 defmodule DateTimeServer do
-  @moduledoc """
-  Documentation for `DateTimeServer`.
-  """
+  use Application
 
-  @doc """
-  Hello world.
+  def start(_type, args) do
+    children = [
+      {DateTimeServer.UDP, :start_link, args[:port]},
+      {DateTimeServer.TCP, :start_link, args[:port]}
+    ]
 
-  ## Examples
-
-      iex> DateTimeServer.hello()
-      :world
-
-  """
-  def hello do
-    :world
+    Supervisor.init(children, strategy: :one_for_one)
   end
 end

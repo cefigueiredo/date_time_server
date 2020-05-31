@@ -1,21 +1,32 @@
 # DateTimeServer
 
-**TODO: Add description**
+App to listen for requests on ports TCP and UDP and respond with the current date formatted as iso8601.
 
-## Installation
+On both UDP and TCP the accepted requests are:
+- `date`
+- `time`
+- `datetime`
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `date_time_server` to your list of dependencies in `mix.exs`:
+The app uses the same port number for both UDP and TCP connections.
+The bash executable accepts a PORT as an argument but if not provided, the port binded will be 3000/TCP and 3000/UDP
 
-```elixir
-def deps do
-  [
-    {:date_time_server, "~> 0.1.0"}
-  ]
-end
+## To test TCP connections:
+```
+telnet localhost PORT
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/date_time_server](https://hexdocs.pm/date_time_server).
+## Dependencies
+
+- Elixir ~> 1.10
+
+## Installation and Initialization
+
+```
+brew install elixir
+mix install
+
+
+./date_time_server.sh [PORT] 
+```
+
 

@@ -1,3 +1,7 @@
 #!/bin/bash
-
-PORT=$1 mix run --no-halt
+if [[ $# -eq 0 ]]
+then
+  mix run --no-halt
+else
+  PORT=$1 mix run --no-halt
+fi

@@ -12,7 +12,13 @@ The bash executable accepts a PORT as an argument but if not provided, the port 
 
 ## To test TCP connections:
 ```
-telnet localhost PORT
+$> telnet localhost 3000
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+date
+2020-06-01
+Connection closed by foreign host.
 ```
 
 ## Dependencies
